@@ -13,6 +13,7 @@ class CreateProductosTable extends Migration
      */
     public function up()
     {
+        // Aquí debo poner mis cambios
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
