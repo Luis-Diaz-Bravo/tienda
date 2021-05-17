@@ -16,6 +16,10 @@ class CreateProductosTable extends Migration
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->text("nombre",30);
+            $table->text("descripción");
+            $table->text("precio_unidad",10);
+            $table->string("cantidad",10);
         });
     }
 
