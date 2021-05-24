@@ -16,6 +16,9 @@ class CreateListaComprasTable extends Migration
         Schema::create('lista_compras', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->unsignedDecimal('Canridad', $precision = 3, $scale = 0);
+            $table->foreign('compras_id')->references('id')->on('compras');
+            $table->foreign('productos_id')->references('id')->on('productos');
         });
     }
 
