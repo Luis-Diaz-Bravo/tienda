@@ -9,7 +9,8 @@
     <a href="#" class=" list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">{{$producto->Nombre}} </h5>
-        <small class="text-muted">{{$producto->Precio_unidad}}</small>
+        <small class="text-muted">{{$producto->Precio_unidad}}</small> <br>
+        <small class="text-muted">{{$producto->existencia}}</small>
         
       </div>
       <p class="mb-1 ">{{$producto->descripcion}} </p>
