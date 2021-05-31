@@ -16,7 +16,7 @@ class Producto extends Model
         'existencia',
     ];
 
-    public function Compras()
+    public function compras()
     {
       return $this->belongsToMany(Compra::class, 'lista_compras');
     }
