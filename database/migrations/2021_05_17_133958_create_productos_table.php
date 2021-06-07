@@ -14,6 +14,7 @@ class CreateProductosTable extends Migration
             $table->text('descripcion');
             $table->unsignedDecimal('precio_unidad', $precision = 8, $scale = 2);
             $table->unsignedInteger('existencia');
+            $table->text('imagen');
             $table->timestamps();
         });
     }

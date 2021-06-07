@@ -26,6 +26,7 @@ class ProductoFactory extends Factory
           'descripcion' => $this->faker->sentence(7, true),
           'precio_unidad' => $this->faker->randomFloat(2,0.1,100),
           'existencia' => $this->faker->numberBetween(0,500),
+          'imagen' => 'img/' . $this->faker->image('public/img', 400, 300, null, false),
         ];
     }
 }
