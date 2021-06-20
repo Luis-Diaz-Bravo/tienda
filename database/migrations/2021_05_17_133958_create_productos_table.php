@@ -23,4 +23,6 @@ class CreateProductosTable extends Migration
     {
         Schema::dropIfExists('productos');
     }
+    //Aquí debo poner mis cambios
+
 }
