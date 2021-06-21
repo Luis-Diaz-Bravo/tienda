@@ -4,34 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
   public function index()
   {
-    $productos = Producto::all();
-    return view('productos.index', compact('productos'));
+    $productos = DB::table('productos')->paginate(10);
+    return view('productos.index', [ 'productos' => $productos ]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function create()
   {
-    //
+    return view('productos.create');
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
   public function store(Request $request)
   {
-    //
+    $ruta = Storage::disk('dropbox')->putFile('producto_img', $request->file('imagen'));
+
+    $producto = new Producto();
+    $producto->nombre = $request->get('nombre');
+    $producto->descripcion = $request->get('descripcion');
+    $producto->precio_unidad = $request->get('precio_unidad');
+    $producto->existencia = $request->get('existencia');
+    $producto->imagen = $ruta;
+    $producto->save();
+
+    return redirect('productos');
   }
 
   /**

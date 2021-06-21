@@ -17,7 +17,7 @@
                 </ul>
             </div>
         @endif
-        <form action="{{route('producto.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('productos') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nombre" class="col-sm12 col-form-label">
@@ -46,10 +46,10 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="precio_unidad" class="col-sm12 col-form-label">
-                        {{__('Name')}}
+                        {{__('Precio')}}
                     </label>
                     <div class="col-sm-12">
-                        <input type="text" id="precio_unidad" name="precio_unidad" class="form-control  {{$errors->has('precio_unidad') ? 'is-invalid': ''}}" value="{{ old('precio_unidad') }}" autofocus>
+                        <input type="number" id="precio_unidad" name="precio_unidad" class="form-control  {{$errors->has('precio_unidad') ? 'is-invalid': ''}}" value="{{ old('precio_unidad') }}" step=any autofocus>
                         @if ($errors->has('precio_unidad'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('precio_unidad') }}</strong>
@@ -59,10 +59,10 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="existencia" class="col-sm12 col-form-label">
-                        {{__('Name')}}
+                        {{__('Existencia (stock)')}}
                     </label>
                     <div class="col-sm-12">
-                        <input type="text" id="existencia" name="existencia" class="form-control  {{$errors->has('existencia') ? 'is-invalid': ''}}" value="{{ old('existencia') }}" autofocus>
+                        <input type="number" id="existencia" name="existencia" class="form-control  {{$errors->has('existencia') ? 'is-invalid': ''}}" value="{{ old('existencia') }}" autofocus>
                         @if ($errors->has('existencia'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('existencia') }}</strong>
