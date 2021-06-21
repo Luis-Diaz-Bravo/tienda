@@ -82,4 +82,11 @@ class TiendaController extends Controller
     {
         //
     }
+
+    public function notificaciones(Request $request)
+    {
+      $user = $request->user();
+      $notificaciones = $user->unreadNotifications;
+      return view('productos.notificaciones', [ 'notificaciones' => $notificaciones ]);
+    }
 }

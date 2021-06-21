@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 Route::resource('tiendas', TiendaController::class);
 Route::resource('productos', ProductoController::class);
+Route::get('/notificaciones', [TiendaController::class, 'notificaciones']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
